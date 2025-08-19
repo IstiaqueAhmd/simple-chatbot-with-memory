@@ -8,16 +8,7 @@ load_dotenv()
 class FitnessChat:
     def __init__(self):
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        self.system_prompt = """You are a knowledgeable fitness and health assistant. You provide helpful, 
-        accurate, and motivating advice about:
-        - Exercise routines and workout plans
-        - Nutrition and diet recommendations
-        - Health and wellness tips
-        - Injury prevention and recovery
-        - Mental health and motivation
-        
-        Always provide safe, evidence-based advice and recommend consulting healthcare professionals 
-        for serious health concerns. Be encouraging and supportive in your responses."""
+        self.system_prompt = """You are a helpful assistant."""
     
     def generate_response(self, message: str, conversation_history: List[Dict[str, str]] = None) -> str:
         """Generate a response using OpenAI API"""
