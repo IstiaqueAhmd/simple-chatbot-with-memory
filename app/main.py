@@ -33,7 +33,7 @@ app.add_middleware(
 )
 
 # Initialize chat service
-fitness_chat = Chat()
+chat = Chat()
 
 @app.get("/")
 async def root():
@@ -62,7 +62,7 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
         save_message(db, session_id, "user", request.message)
         
         # Generate AI response
-        ai_response = fitness_chat.generate_response(request.message, history)
+        ai_response = chat.generate_response(request.message, history)
         
         # Save AI response
         save_message(db, session_id, "assistant", ai_response)
