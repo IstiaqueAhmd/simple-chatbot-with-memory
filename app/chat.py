@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class FitnessChat:
+class Chat:
     def __init__(self):
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.system_prompt = """You are a helpful assistant."""
@@ -23,7 +23,7 @@ class FitnessChat:
             messages.append({"role": "user", "content": message})
             
             response = self.client.chat.completions.create(
-                model="gpt-4.1-mini",
+                model="gpt-4.1-nano",
                 messages=messages,
                 max_tokens=1000,
                 temperature=0.7

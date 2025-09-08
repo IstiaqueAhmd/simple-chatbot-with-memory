@@ -6,7 +6,7 @@ from typing import List
 
 from database import get_db
 from schema import ChatRequest, ChatResponse, ChatHistory, SessionList, ChatSession
-from chat import FitnessChat
+from chat import Chat
 from utils import (
     create_chat_session, 
     save_message, 
@@ -33,7 +33,7 @@ app.add_middleware(
 )
 
 # Initialize chat service
-fitness_chat = FitnessChat()
+fitness_chat = Chat()
 
 @app.get("/")
 async def root():
