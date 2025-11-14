@@ -46,7 +46,7 @@ async def health_check():
     return {"status": "healthy", "timestamp": datetime.utcnow()}
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest, db: Session = Depends(get_db)):
+async def chat_endpoint(request: ChatRequest, db: Session = Depends(get_db)):
     """Send a message and get AI response"""
     try:
         session_id = request.session_id
